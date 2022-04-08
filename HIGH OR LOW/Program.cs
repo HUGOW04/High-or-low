@@ -77,7 +77,7 @@ namespace HIGH_OR_LOW
                             SinglePlayer();
                             break;
                         case 2:
-                            
+                            TwoPlayers();
                             break;
                         case 3:
                             Meny();
@@ -185,10 +185,10 @@ namespace HIGH_OR_LOW
             while (true)
             {
                 totalCards -= 2;
+                round++;
                 while (true)
                 {
 
-                    round++;
                     int index = card.Next(0, chunk.Count);
                     List<Cards> first = new List<Cards>();
                     first.Add(chunk.ElementAt(index));
@@ -316,10 +316,240 @@ namespace HIGH_OR_LOW
                         }
                     break;
                     }
-
-                previous = current;
-                color1 = color2;
                 Console.ReadKey();
+                }
+            }
+        }
+        static void TwoPlayers()
+        {
+
+            Console.Clear();
+            string playerOneAnswer = "",playerTwoAnswer = "";
+            int current = 0;
+            int previous = 0;
+            int player1 = 0;
+            int player2 = 0;
+            int round = 0;
+            int color1 = 0;
+            int color2 = 0;
+            int totalCards = 52;
+            string color;
+            string previousCard = "";
+
+            bool p1 = false, p2 = false;
+
+            Random card = new Random();
+            Cards allCards;
+            List<Cards> chunk = new List<Cards>(52);
+
+
+            for (int i = 1; i <= 13; i++)
+            {
+                for (int j = 1; j <= 4; j++)
+                {
+                    allCards = new Cards(i, j);
+                    chunk.Add(allCards);
+                }
+            }
+
+            Console.WriteLine("The dealer puts 13 cards on the tabel and flips up the first card");
+
+
+            while (true)
+            {
+                totalCards -= 2;
+                round++;
+                while (true)
+                {
+
+                    int index = card.Next(0, chunk.Count);
+                    List<Cards> first = new List<Cards>();
+                    first.Add(chunk.ElementAt(index));
+                    chunk.RemoveAt(index);
+                    foreach (Cards firstCard in first)
+                    {
+                        color1 = firstCard.Color();
+                        previous = firstCard.Number();
+                    }
+                    first.RemoveAt(0);
+                    if (round == 13)
+                    {
+                        Console.WriteLine("All 13/52 cards played now the dealer placed 13 more on the table");
+                        Console.ReadLine();
+                    }
+                    else if (round == 26)
+                    {
+                        Console.WriteLine("All 26/52 cards played now the dealer placed 13 more on the table");
+                        Console.ReadLine();
+                        Meny();
+                    }
+
+
+                    while (true)
+                    {
+
+                        
+
+                        Console.Clear();
+                        if (color1 == 1)
+                        {
+                            color = "Hearts";
+                            previousCard = previous.ToString() + " at " + color;
+                            Console.WriteLine("Cards left: {0}", totalCards);
+                            Console.WriteLine("Current Card: {0} of {1}", previous, CardSort.Hearts);
+                        }
+                        else if (color1 == 2)
+                        {
+                            color = "Diamonds";
+                            previousCard = previous.ToString() + " at " + color;
+                            Console.WriteLine("Cards left: {0}", totalCards);
+                            Console.WriteLine("Current Card: {0} of {1}", previous, CardSort.Diamonds);
+
+                        }
+                        else if (color1 == 3)
+                        {
+                            color = "Spades";
+                            previousCard = previous.ToString() + " at " + color;
+                            Console.WriteLine("Cards left: {0}", totalCards);
+                            Console.WriteLine("Current Card: {0} of {1}", previous, CardSort.Spades);
+
+                        }
+                        else if (color1 == 4)
+                        {
+                            color = "Clover";
+                            previousCard = previous.ToString() + " at " + color;
+                            Console.WriteLine("Cards left: {0}", totalCards);
+                            Console.WriteLine("Current Card: {0} of {1}", previous, CardSort.Clover);
+
+                        }
+                        Console.WriteLine("High or Low: ");
+                        while(true)
+                            {
+                                try
+                                {
+                                    Console.Write("Player1: ");
+                                    playerOneAnswer = Console.ReadLine();
+                                    if (playerOneAnswer == "high" || playerOneAnswer == "low")
+                                    {
+                                        p1 = true;
+                                        break;
+                                    }
+                                }
+                                catch
+                                {
+                                    Console.Clear();
+                                    Console.WriteLine("Need to be high or low");
+                                    Console.ReadLine();
+                                }
+                            }
+                           
+                        
+                        while(true)
+                        {
+                            try
+                            {
+                                Console.Write("Player2: ");
+                                playerTwoAnswer = Console.ReadLine();
+                                if (playerTwoAnswer == "high" || playerTwoAnswer == "low")
+                                {
+                                    p2 = true;
+                                    break;
+                                }
+                            }
+                            catch
+                            {
+                                Console.Clear();
+                                Console.WriteLine("Need to be high or low");
+                                Console.ReadLine();
+                            }
+                        }
+                        if(p1 == p2 == true)
+                        {
+                            break;
+                        }
+                        
+                    }
+                    int pos = card.Next(0, chunk.Count);
+                    List<Cards> second = new List<Cards>();
+                    second.Add(chunk.ElementAt(pos));
+                    chunk.RemoveAt(pos);
+
+                    foreach (Cards secondCard in second)
+                    {
+                        color2 = secondCard.Color();
+                        current = secondCard.Number();
+                    }
+                    second.RemoveAt(0);
+                    Console.Clear();
+                    if (playerOneAnswer == "high" && current > previous && playerTwoAnswer == "high" && current > previous)
+                    {
+                        player1++;
+                        player2++;
+                        Console.WriteLine("Cards left: {0}", totalCards);
+                        Console.WriteLine("Player1 points: " + player1 + " Player2 points: " + player2 + " Round: " + round);
+
+                    }
+                    else if (playerOneAnswer == "low" && current < previous && playerTwoAnswer == "low" && current < previous)
+                    {
+                        player1++;
+                        player2++;
+                        Console.WriteLine("Cards left: {0}", totalCards);
+                        Console.WriteLine("Player1 points: " + player1 + " Player2 points: " + player2 + " Round: " + round);
+                    }
+                    else if(playerOneAnswer == "high" && current > previous || playerTwoAnswer == "high" && current < previous)
+                    {
+                        player1++;
+                        Console.WriteLine("Cards left: {0}", totalCards);
+                        Console.WriteLine("Player1 points: " + player1 +" Round: " + round);
+                    }
+                    else if (playerOneAnswer == "high" && current < previous || playerTwoAnswer == "high" && current > previous)
+                    {
+                        player2++;
+                        Console.WriteLine("Cards left: {0}", totalCards);
+                        Console.WriteLine("Player1 points: " + player2 + " Round: " + round);
+                    }
+                    else if (playerOneAnswer == "low" && current < previous || playerTwoAnswer == "low" && current > previous)
+                    {
+                        player1++;         
+                        Console.WriteLine("Cards left: {0}", totalCards);
+                        Console.WriteLine("Player1 points: " + player1 +" Round: " + round);
+                    }
+                    else if (playerOneAnswer == "low" && current > previous || playerTwoAnswer == "low" && current < previous)
+                    {
+                        player2++;
+                        Console.WriteLine("Cards left: {0}", totalCards);
+                        Console.WriteLine("Player1 points: " + player2 + " Round: " + round);
+                    }
+                    else
+                    {
+
+                        if (color2 == 1)
+                        {
+                            Console.WriteLine("Player1 and Player2 guessed wrong!");
+                            Console.WriteLine("Previous: " + previousCard + " Current: " + current + " at " + CardSort.Hearts + "\t round: " + round);
+                            Console.ReadLine();
+                        }
+                        else if (color2 == 2)
+                        {
+                            Console.WriteLine("Player1 and Player2 guessed wrong!");
+                            Console.WriteLine("Previous: " + previousCard + " Current: " + current + " at " + CardSort.Hearts + "\t round: " + round);
+                            Console.ReadLine();
+                        }
+                        else if (color2 == 3)
+                        {
+                            Console.WriteLine("Player1 and Player2 guessed wrong!");
+                            Console.WriteLine("Previous: " + previousCard + " Current: " + current + " at " + CardSort.Hearts + "\t round: " + round);
+                            Console.ReadLine();
+                        }
+                        else if (color2 == 4)
+                        {
+                            Console.WriteLine("Player1 and Player2 guessed wrong!");
+                            Console.WriteLine("Previous: " + previousCard + " Current: " + current + " at " + CardSort.Hearts + "\t round: " + round);
+                            Console.ReadLine();
+                        }
+                        break;
+                    }
+                    Console.ReadKey();
                 }
             }
         }
