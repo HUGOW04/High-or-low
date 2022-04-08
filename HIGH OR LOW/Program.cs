@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -57,6 +57,44 @@ namespace HIGH_OR_LOW
             }
 
         }
+        static void Play()
+        {
+            
+            while (true)
+            {
+                Console.Clear();
+                Console.WriteLine("1. SinglePlayer");
+                Console.WriteLine("2. 2 Players");
+                Console.WriteLine("3. Go back");
+                Console.WriteLine("4. Exit");
+                Console.Write("Answer: ");
+                try
+                {
+                    int answer = int.Parse(Console.ReadLine());
+                    switch (answer)
+                    {
+                        case 1:
+                            SinglePlayer();
+                            break;
+                        case 2:
+                            
+                            break;
+                        case 3:
+                            Meny();
+                            break;
+                        case 4:
+                            Environment.Exit(0);
+                            break;
+
+                    }
+                }
+                catch
+                {
+                    Console.WriteLine("1, 2, 3 or 4 are you stupid or something");
+                }
+                Console.ReadLine();
+            }
+        }
         static void Info()
         {
 
@@ -98,16 +136,22 @@ namespace HIGH_OR_LOW
         }
         static void HowToPlay()
         {
+            Console.Clear();
             Console.WriteLine("Spelet ”High or Low” använder en vanlig kortlek med 52 kort utan jokrar och hela kortleken används \nuppdelat i fyra omgångar (13 kort per omgång). Spelet börjar med att blanda kortleken och sedan i första omgång läggs ut 13 kort med baksidan upp, därefter vänds det första kortet. \nSen ska spelaren avgöra om nästa kort är högre eller lägre tills alla 13 kort är passerade. Man får en poäng för varje rätt gissning och klarar man alla gissningar vinner man 50 poäng extra. Gissar man fel sparas de rätta gissningarna för den omgången. Spelet fortsätter med nästa omgång med 13 kort från samma kortlek som är en upprepning av första omgången. Ess fungerar som trumf för spelaren d v s det är både högst och lägst. Spelaren förlorar dock om det blir par.");
             Console.WriteLine("Programmet ska kunna användas av minst två spelare och det ska finnas en ”Highscore” lista.");
+            Console.ReadLine();
+            Info();
         }
         static void About()
         {
+            Console.Clear();
             Console.WriteLine("This is written by a passionat padawan programmer that idk dont give a shit");
+            Console.ReadLine();
+            Info();
         }
 
 
-        static void Play()
+        static void SinglePlayer()
         {
 
             Console.Clear();
