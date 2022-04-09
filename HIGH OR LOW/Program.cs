@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace HIGH_OR_LOW
 {
@@ -36,7 +37,7 @@ namespace HIGH_OR_LOW
                     }
                     else if (answer == 2)
                     {
-                        
+                        LeaderBoard();
                     }
                     else if (answer == 3)
                     {
@@ -56,6 +57,11 @@ namespace HIGH_OR_LOW
                 }
             }
 
+        }
+        static void LeaderBoard()
+        {
+            Console.Clear();
+            
         }
         static void Play()
         {
@@ -149,10 +155,14 @@ namespace HIGH_OR_LOW
             Console.ReadLine();
             Info();
         }
-
-        static void Score(string player, int value)
-        {            
-            
+        
+        static string Name(string player)
+        {
+            return player;
+        }
+        static int Point(int point)
+        {
+            return point;
         }
 
         static void SinglePlayer()
@@ -236,8 +246,31 @@ namespace HIGH_OR_LOW
                     }
                     if(cardsLeft == 0)
                     {
-                        Score(playerName,points);
-                        Meny();
+                        while(true)
+                        {
+                            Console.Clear();
+                            Console.Write("Save score yes or no:");
+                            string saveScore;
+                            try
+                            {
+                                saveScore = Console.ReadLine();
+                                if(saveScore == "yes")
+                                {
+                                    Name(playerName);
+                                    Point(points);
+                                    break;
+                                }
+                                else if(saveScore == "no")
+                                {
+                                    Meny();
+                                    break;
+                                }
+                            }
+                            catch
+                            {
+                                Console.WriteLine("yes or no");
+                            }
+                        }
                     }
 
                     while (true)
