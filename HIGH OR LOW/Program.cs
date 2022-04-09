@@ -36,7 +36,7 @@ namespace HIGH_OR_LOW
                     }
                     else if (answer == 2)
                     {
-
+                        
                     }
                     else if (answer == 3)
                     {
@@ -150,6 +150,10 @@ namespace HIGH_OR_LOW
             Info();
         }
 
+        static void Score(string player, int value)
+        {            
+            
+        }
 
         static void SinglePlayer()
         {
@@ -166,6 +170,7 @@ namespace HIGH_OR_LOW
             int cardsLeft = 52;
             string color;
             string previousCard = "";
+            string playerName;
             Random card = new Random();
             Cards allCards;
             List<Cards> chunk = new List<Cards>(52);
@@ -181,6 +186,12 @@ namespace HIGH_OR_LOW
             }
 
             Console.WriteLine("The dealer puts 13 cards on the tabel and flips up the first card");
+            Console.ReadLine();
+            Console.Clear();
+            Console.Write("Enter player name: ");
+            playerName = Console.ReadLine();
+            Console.Clear();
+
 
 
             while (true)
@@ -225,9 +236,9 @@ namespace HIGH_OR_LOW
                     }
                     if(cardsLeft == 0)
                     {
+                        Score(playerName,points);
                         Meny();
                     }
-
 
                     while (true)
                     {
@@ -298,37 +309,41 @@ namespace HIGH_OR_LOW
                     if (answer == "high" && current > previous)
                     {
                         points++;
-                        Console.WriteLine("Cards left: {0}", cardsLeft);
-                        Console.WriteLine("Points: " + points + " Round: " + round);
+                        Console.WriteLine("Cards left: {0}", cardsLeft + " Round: " + round);
+                        Console.WriteLine("Points: " + points );
 
                     }
                     else if (answer == "low" && current < previous)
                     {
                         points++;
-                        Console.WriteLine("Cards left: {0}", cardsLeft);
-                        Console.WriteLine("Points: " + points + " Round: " + round);
+                        Console.WriteLine("Cards left: {0}", cardsLeft + " Round: " + round);
+                        Console.WriteLine("Points: " + points );
                     }
                     else
                     {
 
                         if (color2 == 1)
                         {
-                            Console.WriteLine("Previous: " + previousCard + "\nCurrent: " + current + " of " + CardSort.Hearts+ "\t round: " + round);
+                            Console.WriteLine("Round: "+round);
+                            Console.WriteLine("Previous: " + previousCard + "\nCurrent: " + current + " of " + CardSort.Hearts);
                             Console.ReadLine();
                         }
                         else if (color2 == 2)
                         {
-                            Console.WriteLine("Previous: " + previousCard + "\nCurrent: " + current +" of " + CardSort.Hearts + "\t round: " + round);
+                            Console.WriteLine("Round: " + round);
+                            Console.WriteLine("Previous: " + previousCard + "\nCurrent: " + current +" of " + CardSort.Diamonds);
                             Console.ReadLine();
                         }
                         else if (color2 == 3)
                         {
-                            Console.WriteLine("Previous: " + previousCard + "\nCurrent: " + current + " of " + CardSort.Hearts + "\t round: " + round);
+                            Console.WriteLine("Round: " + round);
+                            Console.WriteLine("Previous: " + previousCard + "\nCurrent: " + current + " of " + CardSort.Spades);
                             Console.ReadLine();
                         }
                         else if (color2 == 4)
                         {
-                            Console.WriteLine("Previous: " + previousCard + "\nCurrent: " + current + " of " + CardSort.Hearts + "\t round: " + round);
+                            Console.WriteLine("Round: " + round);
+                            Console.WriteLine("Previous: " + previousCard + "\nCurrent: " + current + " of " + CardSort.Clover);
                             Console.ReadLine();
                         }
                     break;
@@ -521,8 +536,7 @@ namespace HIGH_OR_LOW
                     {
                         player1++;
                         player2++;
-                        Console.WriteLine("Cards left: {0}", cardsLeft);
-                        Console.WriteLine("Round: " + round);
+                        Console.WriteLine("Cards left: {0}", cardsLeft + " Round: " + round);
                         Console.WriteLine("Player1 points: " + player1 + " Player2 points: " + player2 );
 
                     }
@@ -530,35 +544,31 @@ namespace HIGH_OR_LOW
                     {
                         player1++;
                         player2++;
-                        Console.WriteLine("Cards left: {0}", cardsLeft);
-                        Console.WriteLine("Round: " + round);
+                        Console.WriteLine("Cards left: {0}", cardsLeft + " Round: " + round);
                         Console.WriteLine("Player1 points: " + player1 + " Player2 points: " + player2 );
                     }
                     else if((playerOneAnswer == "high" && current > previous) && (playerTwoAnswer == "low" && current > previous))
                     {
                         player1++;
-                        Console.WriteLine("Cards left: {0}", cardsLeft);
-                        Console.WriteLine("Round: " + round);
+                        Console.WriteLine("Cards left: {0}", cardsLeft + " Round: " + round);
                         Console.WriteLine("Player1 points: " + player1);
                     }
                     else if ((playerOneAnswer == "low" && current > previous) && (playerTwoAnswer == "high" && current > previous))
                     {
                         player2++;
-                        Console.WriteLine("Cards left: {0}", cardsLeft);
-                        Console.WriteLine("Player2 points: " + player2 + " Round: " + round);
+                        Console.WriteLine("Cards left: {0}", cardsLeft + " Round: " + round);
+                        Console.WriteLine("Player2 points: " + player2);
                     }
                     else if ((playerOneAnswer == "low" && current < previous) && (playerTwoAnswer == "high" && current > previous))
                     {
                         player1++;         
-                        Console.WriteLine("Cards left: {0}", cardsLeft);
-                        Console.WriteLine(" Round: " + round);
+                        Console.WriteLine("Cards left: {0}", cardsLeft + " Round: " + round);
                         Console.WriteLine("Player1 points: " + player1);
                     }
                     else if ((playerOneAnswer == "high" && current > previous) && (playerTwoAnswer == "low" && current < previous))
                     {
                         player2++;
-                        Console.WriteLine("Cards left: {0}", cardsLeft);
-                        Console.WriteLine("Round: " + round);
+                        Console.WriteLine("Cards left: {0}", cardsLeft + " Round: " + round);
                         Console.WriteLine("Player2 points: " + player2);
                     }
                     else
@@ -566,26 +576,26 @@ namespace HIGH_OR_LOW
 
                         if (color2 == 1)
                         {
-                            Console.WriteLine("Player1 and Player2 guessed wrong!");
-                            Console.WriteLine("Previous: " + previousCard + " Current: " + current + " of " + CardSort.Hearts + "\t round: " + round);
+                            Console.WriteLine("Player1 and Player2 guessed wrong!" + " Round: " + round);
+                            Console.WriteLine("Previous: " + previousCard + " Current: " + current + " of " + CardSort.Hearts);
                             Console.ReadLine();
                         }
                         else if (color2 == 2)
                         {
-                            Console.WriteLine("Player1 and Player2 guessed wrong!");
-                            Console.WriteLine("Previous: " + previousCard + " Current: " + current + " of " + CardSort.Hearts + "\t round: " + round);
+                            Console.WriteLine("Player1 and Player2 guessed wrong!" + " Round: " + round);
+                            Console.WriteLine("Previous: " + previousCard + " Current: " + current + " of " + CardSort.Diamonds);
                             Console.ReadLine();
                         }
                         else if (color2 == 3)
                         {
-                            Console.WriteLine("Player1 and Player2 guessed wrong!");
-                            Console.WriteLine("Previous: " + previousCard + " Current: " + current + " of " + CardSort.Hearts + "\t round: " + round);
+                            Console.WriteLine("Player1 and Player2 guessed wrong!" + " Round: " + round);
+                            Console.WriteLine("Previous: " + previousCard + " Current: " + current + " of " + CardSort.Spades);
                             Console.ReadLine();
                         }
                         else if (color2 == 4)
                         {
-                            Console.WriteLine("Player1 and Player2 guessed wrong!");
-                            Console.WriteLine("Previous: " + previousCard + " Current: " + current + " of " + CardSort.Hearts + "\t round: " + round);
+                            Console.WriteLine("Player1 and Player2 guessed wrong!" + " Round: " + round);
+                            Console.WriteLine("Previous: " + previousCard + " Current: " + current + " of " + CardSort.Clover);
                             Console.ReadLine();
                         }
                         break;
