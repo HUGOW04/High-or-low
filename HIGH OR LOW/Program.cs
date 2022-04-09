@@ -110,14 +110,15 @@ namespace HIGH_OR_LOW
         
 
 
-        static void TwoPlayers()
-        {
 
-           
-        }
         static void Main(string[] args)
         {
+            List<int> score = new List<int>();
             Console.Title = "High or Low";
+            int points = 0;
+            int player1 = 0;
+            int player2 = 0;
+            string done;
             while (true)
             {
                 Console.Clear();
@@ -135,7 +136,7 @@ namespace HIGH_OR_LOW
                         {
                             Console.Clear();
                             Console.Write("one or two players: ");
-                            string done = Console.ReadLine();
+                            done = Console.ReadLine();
                             try
                             {
                                 if(done == "one")
@@ -144,7 +145,6 @@ namespace HIGH_OR_LOW
                                     string answer;
                                     int current = 0;
                                     int previous = 0;
-                                    int points = 0;
                                     int round = 0;
                                     int color1 = 0;
                                     int color2 = 0;
@@ -225,7 +225,7 @@ namespace HIGH_OR_LOW
                                                         if (saveScore == "yes")
                                                         {
 
-                                                            LeaderBoard(points);
+                                                            score.Add(points);
                                                             break;
                                                         }
                                                         else if (saveScore == "no")
@@ -358,8 +358,6 @@ namespace HIGH_OR_LOW
                                     string playerOneAnswer = "", playerTwoAnswer = "";
                                     int current = 0;
                                     int previous = 0;
-                                    int player1 = 0;
-                                    int player2 = 0;
                                     int round = 0;
                                     int color1 = 0;
                                     int color2 = 0;
@@ -637,12 +635,51 @@ namespace HIGH_OR_LOW
                     }
                     else if (answers == 2)
                     {
-                        //LeaderBoard();
+                        for(int i = 0; i < score.Count; i++)
+                        {
+                            for(int j = 0; j < i; j++)
+                            {
+                                
+                            }
+                        }
                     }
                     else if (answers == 3)
                     {
 
-                        Info();
+                        while (true)
+                        {
+                            Console.Clear();
+                            Console.WriteLine("1.How to play");
+                            Console.WriteLine("2. About Me");
+                            Console.WriteLine("3. Go back");
+                            Console.WriteLine("4. Exit");
+                            Console.Write("Answer: ");
+                            try
+                            {
+                                int answer = int.Parse(Console.ReadLine());
+                                switch (answer)
+                                {
+                                    case 1:
+                                        HowToPlay();
+                                        break;
+                                    case 2:
+                                        About();
+                                        break;
+                                    case 3:
+
+                                        break;
+                                    case 4:
+                                        Environment.Exit(0);
+                                        break;
+
+                                }
+                            }
+                            catch
+                            {
+                                Console.WriteLine("1, 2, 3 or 4 are you stupid or something");
+                            }
+                            Console.ReadLine();
+                        }
 
                     }
                     else if (answers == 4)
