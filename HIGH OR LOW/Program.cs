@@ -37,7 +37,7 @@ namespace HIGH_OR_LOW
                     }
                     else if (answer == 2)
                     {
-                        //LeaderBoard();
+                        LeaderBoard();
                     }
                     else if (answer == 3)
                     {
@@ -58,12 +58,10 @@ namespace HIGH_OR_LOW
             }
 
         }
-        static void LeaderBoard(int point)
+        static void LeaderBoard()
         {
             while (true)
             {
-                List<int> scoreBoard = new List<int>();
-                scoreBoard.Add(point);
                 Console.Clear();
                 Console.WriteLine("1. Highscore");
                 Console.WriteLine("2. Go back");
@@ -75,24 +73,10 @@ namespace HIGH_OR_LOW
                     switch (answer)
                     {
                         case 1:
-                            for (int i = 0; i < scoreBoard.Count; i++)
-                            {
-                                for (int j = 0; j < i; j++)
-                                {
-                                    int value = scoreBoard.ElementAt(j);
-                                    int value2 = scoreBoard.ElementAt(i);
-                                    if (value > value2)
-                                    {
-                                        int temp = value;
-                                        value = value2;
-                                        value2 = temp;
-                                    }
-                                }
-                            }
-                            foreach (var item in scoreBoard)
-                            {
-                                Console.WriteLine(item);
-                            }
+                            var path = "score.txt";
+                            string read = File.ReadAllText(path);
+                            Console.WriteLine(read);
+                            Console.ReadLine();
                             break;
                         case 2:
                             Meny();
@@ -293,8 +277,8 @@ namespace HIGH_OR_LOW
                                 saveScore = Console.ReadLine();
                                 if (saveScore == "yes")
                                 {
-
-                                    LeaderBoard(points);
+                                    
+                                    LeaderBoard();
                                     break;
                                 }
                                 else if (saveScore == "no")
