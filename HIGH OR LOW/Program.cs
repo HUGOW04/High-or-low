@@ -37,7 +37,7 @@ namespace HIGH_OR_LOW
                     }
                     else if (answer == 2)
                     {
-                        LeaderBoard();
+                        //LeaderBoard();
                     }
                     else if (answer == 3)
                     {
@@ -58,10 +58,59 @@ namespace HIGH_OR_LOW
             }
 
         }
-        static void LeaderBoard()
+        static void LeaderBoard(int point)
         {
-            Console.Clear();
-            
+            while (true)
+            {
+                List<int> scoreBoard = new List<int>();
+                scoreBoard.Add(point);
+                Console.Clear();
+                Console.WriteLine("1. Highscore");
+                Console.WriteLine("2. Go back");
+                Console.WriteLine("3. Exit");
+                Console.Write("Answer: ");
+                try
+                {
+                    int answer = int.Parse(Console.ReadLine());
+                    switch (answer)
+                    {
+                        case 1:
+                            for(int i = 0; i < scoreBoard.Count; i++)
+                            {
+                                for(int j = 0; j < i; j++)
+                                {
+                                    int value = scoreBoard.ElementAt(j);
+                                    int value2 = scoreBoard.ElementAt(i);
+                                    if (value > value2)
+                                    {
+                                        int temp = value;
+                                        value = value2;
+                                        value2 = temp;
+                                    }
+                                }
+                            }
+                            foreach (var item in scoreBoard)
+                            {
+                                Console.WriteLine(item);
+                            }
+                            break;
+                        case 2:
+                            Meny();
+                            break;
+                        case 3:
+                            Environment.Exit(0);
+                            break;
+
+                    }
+                }
+                catch
+                {
+                    Console.WriteLine("1, 2, 3");
+                }
+                Console.ReadLine();
+            }
+
+
         }
         static void Play()
         {
@@ -129,7 +178,7 @@ namespace HIGH_OR_LOW
                         case 4:
                             Environment.Exit(0);
                             break;
-
+                            
                     }
                 }
                 catch
@@ -156,14 +205,6 @@ namespace HIGH_OR_LOW
             Info();
         }
         
-        static string Name(string player)
-        {
-            return player;
-        }
-        static int Point(int point)
-        {
-            return point;
-        }
 
         static void SinglePlayer()
         {
@@ -180,7 +221,6 @@ namespace HIGH_OR_LOW
             int cardsLeft = 52;
             string color;
             string previousCard = "";
-            string playerName;
             Random card = new Random();
             Cards allCards;
             List<Cards> chunk = new List<Cards>(52);
@@ -197,9 +237,6 @@ namespace HIGH_OR_LOW
 
             Console.WriteLine("The dealer puts 13 cards on the tabel and flips up the first card");
             Console.ReadLine();
-            Console.Clear();
-            Console.Write("Enter player name: ");
-            playerName = Console.ReadLine();
             Console.Clear();
 
 
@@ -256,8 +293,8 @@ namespace HIGH_OR_LOW
                                 saveScore = Console.ReadLine();
                                 if(saveScore == "yes")
                                 {
-                                    Name(playerName);
-                                    Point(points);
+                                    
+                                    LeaderBoard(points);                                                                        
                                     break;
                                 }
                                 else if(saveScore == "no")
