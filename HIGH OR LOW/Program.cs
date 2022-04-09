@@ -637,10 +637,23 @@ namespace HIGH_OR_LOW
                     {
                         for(int i = 0; i < score.Count; i++)
                         {
+                            
                             for(int j = 0; j < i; j++)
                             {
+                                int value = score[j];
+                                int value2 = score[i];
+                                if(value > value2)
+                                {
+                                    int temp = value;
+                                    value = value2;
+                                    value2 = temp;  
+                                }
                                 
                             }
+                        }
+                        foreach (var item in score)
+                        {
+                            Console.WriteLine(item);
                         }
                     }
                     else if (answers == 3)
