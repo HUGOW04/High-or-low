@@ -184,12 +184,12 @@ namespace HIGH_OR_LOW
 
 
             while (true)
-            {
+            {              
                 while (true)
                 {
 
                     totalCards++;
-                    cardsLeft--;
+                    cardsLeft-=2;
                     round++;
                     int index = card.Next(0, chunk.Count);
                     List<Cards> first = new List<Cards>();
@@ -208,6 +208,7 @@ namespace HIGH_OR_LOW
                     }
                     else if (round == 26)
                     {
+                       
                         Console.WriteLine("All {0}/52 cards played now the dealer placed 13 more on the table", totalCards);
                         Console.ReadLine();
                         
@@ -221,6 +222,10 @@ namespace HIGH_OR_LOW
                     {
                         Console.WriteLine("All {0}/52 cards played now the dealer placed 13 more on the table", totalCards);
                         Console.ReadLine();
+                    }
+                    if(cardsLeft == 0)
+                    {
+                        Meny();
                     }
 
 
@@ -370,11 +375,12 @@ namespace HIGH_OR_LOW
 
             while (true)
             {
+                round++;
+                cardsLeft -= 2;
+                totalCards++;
+               
                 while (true)
                 {
-                    totalCards++;
-                    cardsLeft--;
-                    round++;
                     int index = card.Next(0, chunk.Count);
                     List<Cards> first = new List<Cards>();
                     first.Add(chunk.ElementAt(index));
@@ -384,10 +390,10 @@ namespace HIGH_OR_LOW
                         color1 = firstCard.Color();
                         previous = firstCard.Number();
                     }
-                    first.RemoveAt(0);
+                    first.RemoveAt(0);                     
                     if (round == 13)
                     {
-                        
+
                         Console.WriteLine("All {0}/52 cards played now the dealer placed 13 more on the table", totalCards);
                         Console.ReadLine();
                     }
@@ -396,6 +402,7 @@ namespace HIGH_OR_LOW
                         
                         Console.WriteLine("All {0}/52 cards played now the dealer placed 13 more on the table", totalCards);
                         Console.ReadLine();
+                        
                         
                     }
                     else if (round == 39)
@@ -410,14 +417,16 @@ namespace HIGH_OR_LOW
                         Console.WriteLine("All {0}/52 cards played now the dealer placed 13 more on the table", totalCards);
                         Console.ReadLine();
                     }
-
+                    if (cardsLeft == 0)
+                    {
+                        Meny();
+                    }
 
                     while (true)
                     {
 
-                        
 
-                        Console.Clear();
+                        Console.Clear();                     
                         if (color1 == 1)
                         {
                             color = "Hearts";
