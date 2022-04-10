@@ -40,7 +40,8 @@ namespace HIGH_OR_LOW
 
                         while (true)
                         {
-                            Console.WriteLine("one or two players");
+                            Console.Clear();
+                            Console.Write("one or two players: ");
                             try
                             {
                                 gamemode = Console.ReadLine();
@@ -54,6 +55,16 @@ namespace HIGH_OR_LOW
                                     gamemode = "two";
                                     break;
                                 }
+                                else if(gamemode == "1")
+                                {
+                                    gamemode = "1";
+                                    break;
+                                }
+                                else if(gamemode == "2")
+                                {
+                                    gamemode = "2";
+                                    break;
+                                }
 
                             }
                             catch
@@ -62,7 +73,7 @@ namespace HIGH_OR_LOW
                             }
 
                         }
-                        if(gamemode == "one")
+                        if(gamemode == "one" || gamemode == "1")
                         {
                             Console.Clear();
                             string playerAnswer = "";
@@ -279,7 +290,7 @@ namespace HIGH_OR_LOW
                                 }
                             }
                         }
-                        else if(gamemode == "two")
+                        else if(gamemode == "two" || gamemode == "2")
                         {
                             Console.Clear();
                             string playerOneAnswer = "", playerTwoAnswer = "";
@@ -361,15 +372,63 @@ namespace HIGH_OR_LOW
                                         Console.WriteLine("All {0}/52 cards played now the dealer placed 13 more on the table", totalCards);
                                         Console.ReadLine();
                                     }
-                                    if (cardsLeft == 0)
+                                    if (cardsLeft == 40)
                                     {
-                                        break;
+                                        alive = false;
+                                        while (true)
+                                        {
+                                            Console.Clear();
+                                            Console.Write("Player1 Save score yes or no:");
+                                            string saveScore;
+                                            try
+                                            {
+                                                saveScore = Console.ReadLine();
+                                                if (saveScore == "yes")
+                                                {
+                                                    Console.Clear();
+                                                    tal.Add(player1);
+                                                    break;
+                                                }
+                                                else if (saveScore == "no")
+                                                {
+                                                    Console.Clear();
+                                                    break;
+                                                }
+                                            }
+                                            catch
+                                            {
+                                                Console.WriteLine("yes or no");
+                                            }
+                                        }
+                                        while (true)
+                                        {
+                                            Console.Clear();
+                                            Console.Write("Player2 Save score yes or no:");
+                                            string saveScore;
+                                            try
+                                            {
+                                                saveScore = Console.ReadLine();
+                                                if (saveScore == "yes")
+                                                {
+                                                    Console.Clear();
+                                                    tal.Add(player2);
+                                                    break;
+                                                }
+                                                else if (saveScore == "no")
+                                                {
+                                                    Console.Clear();
+                                                    break;
+                                                }
+                                            }
+                                            catch
+                                            {
+                                                Console.WriteLine("yes or no");
+                                            }
+                                        }
                                     }
 
                                     while (alive)
                                     {
-
-
                                         Console.Clear();
                                         if (color1 == 1)
                                         {
