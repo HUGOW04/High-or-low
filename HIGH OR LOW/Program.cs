@@ -512,7 +512,18 @@ namespace HIGH_OR_LOW
                             int current = 0;
                             int previous = 0;
                             int player1 = 0;
+                            int player11 = 0;
+                            int player12 = 0;
+                            int player13 = 0;
+                            int player14 = 0;
                             int player2 = 0;
+                            int player21 = 0;
+                            int player22 = 0;
+                            int player23 = 0;
+                            int player24 = 0;
+                            int totalPointsPlayer1 = 0;
+                            int totalPointsPlayer2 = 0;
+                            int extraPoints = 50;
                             int round = 0;
                             int color1 = 0;
                             int color2 = 0;
@@ -565,13 +576,47 @@ namespace HIGH_OR_LOW
                                     first.RemoveAt(0);
                                     if (round == 13)
                                     {
-
+                                        player11 = player1;
+                                        player21 = player2;
+                                        if(round == 13 && player11 == 13)
+                                        {
+                                            totalPointsPlayer1 = player11 + extraPoints;
+                                        }
+                                        else
+                                        {
+                                            totalPointsPlayer1 = player11;
+                                        }
+                                        if(round == 13 && player21 == 13)
+                                        {
+                                            totalPointsPlayer2 = player21 + extraPoints; 
+                                        }
+                                        else
+                                        {
+                                            totalPointsPlayer2 = player21;
+                                        }
                                         Console.WriteLine("All 13/52 cards played now the dealer placed 13 more on the table");
                                         Console.ReadLine();
                                     }
                                     else if (round == 26)
                                     {
-
+                                        player12 = player1 - player11;
+                                        player22 = player2 - player21;
+                                        if (round == 26 && player11 == 13)
+                                        {
+                                            totalPointsPlayer1 = player12 + extraPoints;
+                                        }
+                                        else
+                                        {
+                                            totalPointsPlayer1 = player12;
+                                        }
+                                        if(round == 13 && player21 == 13)
+                                        {
+                                            totalPointsPlayer2 = player22 + extraPoints;
+                                        }
+                                        else
+                                        {
+                                            totalPointsPlayer2 = player22;
+                                        }
                                         Console.WriteLine("All 26/52 cards played now the dealer placed 13 more on the table");
                                         Console.ReadLine();
 
@@ -579,13 +624,47 @@ namespace HIGH_OR_LOW
                                     }
                                     else if (round == 39)
                                     {
-
+                                        player13 = player1 - player12;
+                                        player23 = player2 - player22;
+                                        if (round == 26 && player13 == 13)
+                                        {
+                                            totalPointsPlayer1 = player13 + extraPoints;
+                                        }
+                                        else
+                                        {
+                                            totalPointsPlayer1 = player13;
+                                        }
+                                        if(round == 13 && player23 == 13)
+                                        {
+                                            totalPointsPlayer2 = player23 + extraPoints;
+                                        }
+                                        else
+                                        {
+                                            totalPointsPlayer2 = player23;
+                                        }
                                         Console.WriteLine("All 39/52 cards played now the dealer placed 13 more on the table");
                                         Console.ReadLine();
                                     }
                                     else if (round == 52)
                                     {
-
+                                        player14 = player1 - player13;
+                                        player24 = player2 - player23;
+                                        if (round == 26 && player14 == 13)
+                                        {
+                                            totalPointsPlayer1 = player14 + extraPoints;
+                                        }
+                                        else
+                                        {
+                                            totalPointsPlayer1 = player14;
+                                        }
+                                        if(round == 13 && player24 == 13)
+                                        {
+                                            totalPointsPlayer2 = player24 + extraPoints;
+                                        }
+                                        else
+                                        {
+                                            totalPointsPlayer2 = player24;
+                                        }
                                         Console.WriteLine("All 52/52 cards played now the dealer placed 13 more on the table");
                                         Console.ReadLine();
                                     }
@@ -603,7 +682,7 @@ namespace HIGH_OR_LOW
                                                 if (saveScore == "yes")
                                                 {
                                                     Console.Clear();
-                                                    tal.Add(player1);
+                                                    tal.Add(totalPointsPlayer1);
                                                     break;
                                                 }
                                                 else if (saveScore == "no")
@@ -628,7 +707,7 @@ namespace HIGH_OR_LOW
                                                 if (saveScore == "yes")
                                                 {
                                                     Console.Clear();
-                                                    tal.Add(player2);
+                                                    tal.Add(totalPointsPlayer2);
                                                     break;
                                                 }
                                                 else if (saveScore == "no")
