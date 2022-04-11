@@ -9,7 +9,7 @@ namespace HIGH_OR_LOW
 {
     internal class Program
     {
-        
+
         public enum CardSort
         {
             Hearts,
@@ -45,22 +45,22 @@ namespace HIGH_OR_LOW
                             try
                             {
                                 gamemode = Console.ReadLine();
-                                if(gamemode == "one")
+                                if (gamemode == "one")
                                 {
                                     gamemode = "one";
                                     break;
                                 }
-                                else if(gamemode == "two")
+                                else if (gamemode == "two")
                                 {
                                     gamemode = "two";
                                     break;
                                 }
-                                else if(gamemode == "1")
+                                else if (gamemode == "1")
                                 {
                                     gamemode = "1";
                                     break;
                                 }
-                                else if(gamemode == "2")
+                                else if (gamemode == "2")
                                 {
                                     gamemode = "2";
                                     break;
@@ -73,7 +73,7 @@ namespace HIGH_OR_LOW
                             }
 
                         }
-                        if(gamemode == "one" || gamemode == "1")
+                        if (gamemode == "one" || gamemode == "1")
                         {
                             Console.Clear();
                             string playerAnswer = "";
@@ -290,7 +290,7 @@ namespace HIGH_OR_LOW
                                 }
                             }
                         }
-                        else if(gamemode == "two" || gamemode == "2")
+                        else if (gamemode == "two" || gamemode == "2")
                         {
                             Console.Clear();
                             string playerOneAnswer = "", playerTwoAnswer = "";
@@ -597,15 +597,15 @@ namespace HIGH_OR_LOW
                     {
                         Console.Clear();
                         int[] arr = new int[tal.Count];
-                        for(int i = 0; i < arr.Length; i++)
+                        for (int i = 0; i < arr.Length; i++)
                         {
-                            arr[i] = i;
+                            arr[i] = tal.ElementAt(i);
                         }
-                        for(int i = 0; i < arr.Length; i++)
+                        for (int i = 0; i < arr.Length; i++)
                         {
-                            for(int j = 0; j < i; j++)
+                            for (int j = 0; j < i; j++)
                             {
-                                if(arr[j] < arr[i])
+                                if (arr[j] < arr[i])
                                 {
                                     int temp = arr[i];
                                     arr[i] = arr[j];
@@ -613,7 +613,7 @@ namespace HIGH_OR_LOW
                                 }
                             }
                         }
-                        for(int i = 0; i < arr.Length; i++)
+                        for (int i = 0; i < arr.Length; i++)
                         {
                             Console.WriteLine(arr[i]);
                         }
