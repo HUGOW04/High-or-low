@@ -128,29 +128,29 @@ namespace HIGH_OR_LOW
                                         previous = firstCard.Number();
                                     }
                                     first.RemoveAt(0);
-                                    if (round == 13)
+                                    if (round == 6)
                                     {
-                                        Console.WriteLine("All {0}/52 cards played now the dealer placed 13 more on the table", totalCards);
+                                        Console.WriteLine("All {0}/52 cards played now the dealer placed 13 more on the table", cardsLeft);
                                         Console.ReadLine();
                                     }
-                                    else if (round == 26)
+                                    else if (round == 12)
                                     {
 
-                                        Console.WriteLine("All {0}/52 cards played now the dealer placed 13 more on the table", totalCards);
+                                        Console.WriteLine("All {0}/52 cards played now the dealer placed 13 more on the table", cardsLeft);
                                         Console.ReadLine();
 
                                     }
-                                    else if (round == 39)
+                                    else if (round == 18)
                                     {
-                                        Console.WriteLine("All {0}/52 cards played now the dealer placed 13 more on the table", totalCards);
+                                        Console.WriteLine("All {0}/52 cards played now the dealer placed 13 more on the table", cardsLeft);
                                         Console.ReadLine();
                                     }
-                                    else if (round == 52)
+                                    else if (round == 24)
                                     {
-                                        Console.WriteLine("All {0}/52 cards played now the dealer placed 13 more on the table", totalCards);
+                                        Console.WriteLine("All {0}/52 cards played now the dealer placed 13 more on the table", cardsLeft);
                                         Console.ReadLine();
                                     }
-                                    if (cardsLeft == 40)
+                                    if (cardsLeft == 0)
                                     {
                                         alive = false;
                                         while (true)
@@ -340,14 +340,13 @@ namespace HIGH_OR_LOW
                                         current = secondCard.Number();
                                     }
                                     second.RemoveAt(0);
-                                    if (playerAnswer == "high" && current > previous)
+                                    if (playerAnswer == "high" && current > previous || current == 1)
                                     {
                                         points++;
                                         Console.WriteLine("Cards left: {0}", cardsLeft + " Round: " + round);
                                         Console.WriteLine("Points: " + points);
-
                                     }
-                                    else if (playerAnswer == "low" && current < previous)
+                                    else if (playerAnswer == "low" && current < previous || current == 1)
                                     {
                                         points++;
                                         Console.WriteLine("Cards left: {0}", cardsLeft + " Round: " + round);
@@ -371,7 +370,7 @@ namespace HIGH_OR_LOW
                                             {
                                                 currentCard = symbol[2]+"";
                                             }
-                                            else if(current == 14 || current == 1)
+                                            else if(current == 1)
                                             {
                                                 currentCard = symbol[3]+"";
                                             }
@@ -397,7 +396,7 @@ namespace HIGH_OR_LOW
                                             {
                                                 currentCard = symbol[2]+"";
                                             }
-                                            else if (current == 14 || current == 1)
+                                            else if (current == 1)
                                             {
                                                 currentCard = symbol[3]+"";
                                             }
@@ -423,7 +422,7 @@ namespace HIGH_OR_LOW
                                             {
                                                 currentCard = symbol[2]+"";
                                             }
-                                            else if (current == 14 || current == 1)
+                                            else if (current == 1)
                                             {
                                                 currentCard = symbol[3]+"";
                                             }
@@ -449,7 +448,7 @@ namespace HIGH_OR_LOW
                                             {
                                                 currentCard = symbol[2]+"";
                                             }
-                                            else if (current == 14 || current == 1)
+                                            else if (current == 1)
                                             {
                                                 currentCard = symbol[3] + "";
                                             }
@@ -526,13 +525,13 @@ namespace HIGH_OR_LOW
                                     if (round == 13)
                                     {
 
-                                        Console.WriteLine("All {0}/52 cards played now the dealer placed 13 more on the table", totalCards);
+                                        Console.WriteLine("All {0}/52 cards played now the dealer placed 13 more on the table", cardsLeft);
                                         Console.ReadLine();
                                     }
                                     else if (round == 26)
                                     {
 
-                                        Console.WriteLine("All {0}/52 cards played now the dealer placed 13 more on the table", totalCards);
+                                        Console.WriteLine("All {0}/52 cards played now the dealer placed 13 more on the table", cardsLeft);
                                         Console.ReadLine();
 
 
@@ -540,16 +539,16 @@ namespace HIGH_OR_LOW
                                     else if (round == 39)
                                     {
 
-                                        Console.WriteLine("All {0}/52 cards played now the dealer placed 13 more on the table", totalCards);
+                                        Console.WriteLine("All {0}/52 cards played now the dealer placed 13 more on the table", cardsLeft);
                                         Console.ReadLine();
                                     }
                                     else if (round == 52)
                                     {
 
-                                        Console.WriteLine("All {0}/52 cards played now the dealer placed 13 more on the table", totalCards);
+                                        Console.WriteLine("All {0}/52 cards played now the dealer placed 13 more on the table", cardsLeft);
                                         Console.ReadLine();
                                     }
-                                    if (cardsLeft == 40)
+                                    if (cardsLeft == 0)
                                     {
                                         alive = false;
                                         while (true)
@@ -791,7 +790,7 @@ namespace HIGH_OR_LOW
                                     }
                                     second.RemoveAt(0);
                                     Console.Clear();
-                                    if ((playerOneAnswer == "high" && current > previous) && (playerTwoAnswer == "high" && current > previous))
+                                    if (((playerOneAnswer == "high" && current > previous)|| (playerOneAnswer == "high" && current > previous) && current == 1) && (playerTwoAnswer == "high" && current > previous)|| (playerTwoAnswer == "high" && current > previous)&&current == 1)
                                     {
                                         player1++;
                                         player2++;
@@ -799,32 +798,32 @@ namespace HIGH_OR_LOW
                                         Console.WriteLine("Player1 points: " + player1 + " Player2 points: " + player2);
 
                                     }
-                                    else if ((playerOneAnswer == "low" && current < previous) && (playerTwoAnswer == "low" && current < previous))
+                                    else if (((playerOneAnswer == "low" && current < previous) && current == 1) && (playerTwoAnswer == "low" && current < previous) && current == 1)
                                     {
                                         player1++;
                                         player2++;
                                         Console.WriteLine("Cards left: {0}", cardsLeft + " Round: " + round);
                                         Console.WriteLine("Player1 points: " + player1 + " Player2 points: " + player2);
                                     }
-                                    else if ((playerOneAnswer == "high" && current > previous) && (playerTwoAnswer == "low" && current > previous))
+                                    else if (((playerOneAnswer == "high" && current > previous) && current == 1) && (playerTwoAnswer == "low" && current > previous) && current == 1)
                                     {
                                         player1++;
                                         Console.WriteLine("Cards left: {0}", cardsLeft + " Round: " + round);
                                         Console.WriteLine("Player1 points: " + player1);
                                     }
-                                    else if ((playerOneAnswer == "low" && current > previous) && (playerTwoAnswer == "high" && current > previous))
+                                    else if (((playerOneAnswer == "low" && current > previous)&& current == 1) && (playerTwoAnswer == "high" && current > previous)&&current == 1)
                                     {
                                         player2++;
                                         Console.WriteLine("Cards left: {0}", cardsLeft + " Round: " + round);
                                         Console.WriteLine("Player2 points: " + player2);
                                     }
-                                    else if ((playerOneAnswer == "low" && current < previous) && (playerTwoAnswer == "high" && current < previous))
+                                    else if (((playerOneAnswer == "low" && current < previous)&& current == 1) && (playerTwoAnswer == "high" && current < previous)&&current == 1)
                                     {
                                         player1++;
                                         Console.WriteLine("Cards left: {0}", cardsLeft + " Round: " + round);
                                         Console.WriteLine("Player1 points: " + player1);
                                     }
-                                    else if ((playerOneAnswer == "high" && current < previous) && (playerTwoAnswer == "low" && current < previous))
+                                    else if (((playerOneAnswer == "high" && current < previous)&&current == 1) && (playerTwoAnswer == "low" && current < previous)&& current == 1)
                                     {
                                         player2++;
                                         Console.WriteLine("Cards left: {0}", cardsLeft + " Round: " + round);
