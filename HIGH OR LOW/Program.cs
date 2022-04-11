@@ -96,9 +96,10 @@ namespace HIGH_OR_LOW
                             string color;
                             string previousCard = "";
                             string currentCard = "";
+                            bool alive = true;
+                            bool pair = false;
                             Random card = new Random();
                             Cards allCards;
-                            bool alive = true;
                             List<Cards> chunk = new List<Cards>(52);
 
 
@@ -136,13 +137,23 @@ namespace HIGH_OR_LOW
                                     if (round == 13)
                                     {
                                         points1 = points;
-                                        if(round == 13 && points1 == 13)
+                                        if(pair == false)
                                         {
-                                            totalpoints = points1 + extraPoints; 
+                                            if(round == 13 && points1 == 13)
+                                            {
+                                                totalpoints = points1 + extraPoints; 
+                                            }
+                                            else
+                                            {
+                                                totalpoints = points1;
+                                            }
                                         }
                                         else
                                         {
-                                            totalpoints = points1;
+                                            points1 = 0;
+                                            Console.WriteLine("You got a pair your score is now 0 for this round");
+                                            Console.ReadLine();
+                                            pair = false;
                                         }
                                         Console.WriteLine("All 13/52 cards played now the dealer placed 13 more on the table");
                                         Console.ReadLine();
@@ -151,13 +162,23 @@ namespace HIGH_OR_LOW
                                     else if (round == 26)
                                     {
                                         points2 = points - points1;
-                                        if (round == 26 && points2 == 13)
+                                        if(pair == false)
                                         {
-                                            totalpoints = points2 + extraPoints;
+                                            if (round == 26 && points2 == 13)
+                                            {
+                                                totalpoints = points2 + extraPoints;
+                                            }
+                                            else
+                                            {
+                                                totalpoints = points2;
+                                            }
                                         }
                                         else
                                         {
-                                            totalpoints = points2;
+                                            points2 = 0;
+                                            Console.WriteLine("You got a pair your score is now 0 for this round");
+                                            Console.ReadLine();
+                                            pair = false;
                                         }
                                         Console.WriteLine("All {26/52 cards played now the dealer placed 13 more on the table");
                                         Console.ReadLine();
@@ -166,13 +187,23 @@ namespace HIGH_OR_LOW
                                     else if (round == 39)
                                     {
                                         points3 = points - points2;
-                                        if (round == 39 && points3 == 13)
+                                        if(pair == false)
                                         {
-                                            totalpoints = points3 + extraPoints;
+                                            if (round == 39 && points3 == 13)
+                                            {
+                                                totalpoints = points3 + extraPoints;
+                                            }
+                                            else
+                                            {
+                                                totalpoints = points3;
+                                            }
                                         }
                                         else
                                         {
-                                            totalpoints = points3;
+                                            points3 = 0;
+                                            Console.WriteLine("You got a pair your score is now 0 for this round");
+                                            Console.ReadLine();
+                                            pair = false;
                                         }
                                         Console.WriteLine("All 39/52 cards played now the dealer placed 13 more on the table");
                                         Console.ReadLine();
@@ -180,13 +211,24 @@ namespace HIGH_OR_LOW
                                     else if (round == 52)
                                     {
                                         points4 = points - points3;
-                                        if (round == 52 && points4 == 13)
+                                        if(pair == false)
                                         {
-                                            totalpoints = points4 + extraPoints;
+
+                                            if (round == 52 && points4 == 13)
+                                            {
+                                                totalpoints = points4 + extraPoints;
+                                            }
+                                            else
+                                            {
+                                                totalpoints = points4;
+                                            }
                                         }
                                         else
                                         {
-                                            totalpoints = points4;
+                                            points4 = 0;
+                                            Console.WriteLine("You got a pair your score is now 0 for this round");
+                                            Console.ReadLine();
+                                            pair = false;
                                         }
                                         Console.WriteLine("All 52/52 cards played now the dealer placed 13 more on the table");
                                         Console.ReadLine();
@@ -392,6 +434,10 @@ namespace HIGH_OR_LOW
                                         Console.WriteLine("Cards left: {0}", cardsLeft + " Round: " + round);
                                         Console.WriteLine("Points: " + points);
                                     }
+                                    else if(current == previous)
+                                    {
+                                        pair = true;
+                                    }
                                     else
                                     {
 
@@ -533,7 +579,7 @@ namespace HIGH_OR_LOW
                             string previousCard = "";
                             string currentCard = "";
                             bool alive = true;
-
+                            bool pair = false;
                             bool p1 = false, p2 = false;
 
                             Random card = new Random();
@@ -578,21 +624,30 @@ namespace HIGH_OR_LOW
                                     {
                                         player11 = player1;
                                         player21 = player2;
-                                        if(round == 13 && player11 == 13)
+                                        if(pair == false)
                                         {
-                                            totalPointsPlayer1 = player11 + extraPoints;
+                                            if(round == 13 && player11 == 13)
+                                            {
+                                                totalPointsPlayer1 = player11 + extraPoints;
+                                            }
+                                            else
+                                            {
+                                                totalPointsPlayer1 = player11;
+                                            }
+                                            if(round == 13 && player21 == 13)
+                                            {
+                                                totalPointsPlayer2 = player21 + extraPoints; 
+                                            }
+                                            else
+                                            {
+                                                totalPointsPlayer2 = player21;
+                                            }
                                         }
                                         else
                                         {
-                                            totalPointsPlayer1 = player11;
-                                        }
-                                        if(round == 13 && player21 == 13)
-                                        {
-                                            totalPointsPlayer2 = player21 + extraPoints; 
-                                        }
-                                        else
-                                        {
-                                            totalPointsPlayer2 = player21;
+                                            player11 = 0;
+                                            player21 = 0;
+                                            pair = false;
                                         }
                                         Console.WriteLine("All 13/52 cards played now the dealer placed 13 more on the table");
                                         Console.ReadLine();
@@ -601,21 +656,30 @@ namespace HIGH_OR_LOW
                                     {
                                         player12 = player1 - player11;
                                         player22 = player2 - player21;
-                                        if (round == 26 && player11 == 13)
+                                        if(pair == false)
                                         {
-                                            totalPointsPlayer1 = player12 + extraPoints;
+                                            if (round == 26 && player11 == 13)
+                                            {
+                                                totalPointsPlayer1 = player12 + extraPoints;
+                                            }
+                                            else
+                                            {
+                                                totalPointsPlayer1 = player12;
+                                            }
+                                            if(round == 13 && player21 == 13)
+                                            {
+                                                totalPointsPlayer2 = player22 + extraPoints;
+                                            }
+                                            else
+                                            {
+                                                totalPointsPlayer2 = player22;
+                                            }
                                         }
                                         else
                                         {
-                                            totalPointsPlayer1 = player12;
-                                        }
-                                        if(round == 13 && player21 == 13)
-                                        {
-                                            totalPointsPlayer2 = player22 + extraPoints;
-                                        }
-                                        else
-                                        {
-                                            totalPointsPlayer2 = player22;
+                                            player12 = 0;
+                                            player22 = 0;
+                                            pair = false;
                                         }
                                         Console.WriteLine("All 26/52 cards played now the dealer placed 13 more on the table");
                                         Console.ReadLine();
@@ -626,21 +690,30 @@ namespace HIGH_OR_LOW
                                     {
                                         player13 = player1 - player12;
                                         player23 = player2 - player22;
-                                        if (round == 26 && player13 == 13)
+                                        if(pair == false)
                                         {
-                                            totalPointsPlayer1 = player13 + extraPoints;
+                                            if (round == 26 && player13 == 13)
+                                            {
+                                                totalPointsPlayer1 = player13 + extraPoints;
+                                            }
+                                            else
+                                            {
+                                                totalPointsPlayer1 = player13;
+                                            }
+                                            if(round == 13 && player23 == 13)
+                                            {
+                                                totalPointsPlayer2 = player23 + extraPoints;
+                                            }
+                                            else
+                                            {
+                                                totalPointsPlayer2 = player23;
+                                            }
                                         }
                                         else
                                         {
-                                            totalPointsPlayer1 = player13;
-                                        }
-                                        if(round == 13 && player23 == 13)
-                                        {
-                                            totalPointsPlayer2 = player23 + extraPoints;
-                                        }
-                                        else
-                                        {
-                                            totalPointsPlayer2 = player23;
+                                            player13 = 0;
+                                            player23 = 0;
+                                            pair = false;
                                         }
                                         Console.WriteLine("All 39/52 cards played now the dealer placed 13 more on the table");
                                         Console.ReadLine();
@@ -649,21 +722,30 @@ namespace HIGH_OR_LOW
                                     {
                                         player14 = player1 - player13;
                                         player24 = player2 - player23;
-                                        if (round == 26 && player14 == 13)
+                                        if(pair == false)
                                         {
-                                            totalPointsPlayer1 = player14 + extraPoints;
+                                            if (round == 26 && player14 == 13)
+                                            {
+                                                totalPointsPlayer1 = player14 + extraPoints;
+                                            }
+                                            else
+                                            {
+                                                totalPointsPlayer1 = player14;
+                                            }
+                                            if(round == 13 && player24 == 13)
+                                            {
+                                                totalPointsPlayer2 = player24 + extraPoints;
+                                            }
+                                            else
+                                            {
+                                                totalPointsPlayer2 = player24;
+                                            }
                                         }
                                         else
                                         {
-                                            totalPointsPlayer1 = player14;
-                                        }
-                                        if(round == 13 && player24 == 13)
-                                        {
-                                            totalPointsPlayer2 = player24 + extraPoints;
-                                        }
-                                        else
-                                        {
-                                            totalPointsPlayer2 = player24;
+                                            player14 = 0;
+                                            player24 = 0;
+                                            pair = false;
                                         }
                                         Console.WriteLine("All 52/52 cards played now the dealer placed 13 more on the table");
                                         Console.ReadLine();
@@ -756,7 +838,6 @@ namespace HIGH_OR_LOW
                                                 Console.WriteLine("Current Card: {0} of {1}", previous, CardSort.Hearts);
                                                 previousCard = previous.ToString() + " of " + color;
                                             }
-
                                         }
                                         else if (color1 == 2)
                                         {
@@ -951,6 +1032,10 @@ namespace HIGH_OR_LOW
                                         Console.WriteLine("Cards left: {0}", cardsLeft + " Round: " + round);
                                         Console.WriteLine("Player2 points: " + player2);
                                     }
+                                    else if(current == previous)
+                                    {
+                                        pair = true;
+                                    }
                                     else
                                     {
                                         if (color2 == 1)
@@ -1123,8 +1208,6 @@ namespace HIGH_OR_LOW
                                     case 4:
                                         Environment.Exit(0);
                                         break;
-
-
                                 }
                             }
                             catch
