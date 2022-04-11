@@ -22,6 +22,7 @@ namespace HIGH_OR_LOW
         {
             Console.Title = "High or Low";
             List<int> tal = new List<int>();
+            char[] symbol = { 'J', 'Q', 'K', 'A' };
             while (true)
             {
 
@@ -186,34 +187,128 @@ namespace HIGH_OR_LOW
                                         if (color1 == 1)
                                         {
                                             color = "Hearts";
-                                            previousCard = previous.ToString() + " at " + color;
                                             Console.WriteLine("Cards left: {0}", cardsLeft);
-                                            Console.WriteLine("Current Card: {0} of {1}", previous, CardSort.Hearts);
-
+                                            if(previous == 11)
+                                            {
+                                                Console.WriteLine("Current Card: {0} of {1}", symbol[0], CardSort.Hearts);
+                                                previousCard = symbol[0] + " at " + color;
+                                            }
+                                            else if(previous == 12)
+                                            {
+                                                Console.WriteLine("Current Card: {0} of {1}", symbol[1], CardSort.Hearts);
+                                                previousCard = symbol[1] + " at " + color;
+                                            }
+                                            else if(previous == 13)
+                                            {
+                                                Console.WriteLine("Current Card: {0} of {1}", symbol[2], CardSort.Hearts);
+                                                previousCard = symbol[2] + " at " + color;
+                                            }
+                                            else if(previous == 14 || previous == 1)
+                                            {
+                                                Console.WriteLine("Current Card: {0} of {1}", symbol[3], CardSort.Hearts);
+                                                previousCard = symbol[3] + " at " + color;
+                                            }
+                                            else
+                                            {
+                                                Console.WriteLine("Current Card: {0} of {1}", previous, CardSort.Hearts);
+                                                previousCard = previous.ToString() + " at " + color;
+                                            }
 
                                         }
                                         else if (color1 == 2)
                                         {
                                             color = "Diamonds";
-                                            previousCard = previous.ToString() + " at " + color;
                                             Console.WriteLine("Cards left: {0}", cardsLeft);
-                                            Console.WriteLine("Current Card: {0} of {1}", previous, CardSort.Diamonds);
+                                            if (previous == 11)
+                                            {
+                                                Console.WriteLine("Current Card: {0} of {1}", symbol[0], CardSort.Diamonds);
+                                                previousCard = symbol[0] + " at " + color;
+                                            }
+                                            else if(previous == 12)
+                                            {
+                                                Console.WriteLine("Current Card: {0} of {1}", symbol[1], CardSort.Diamonds);
+                                                previousCard = symbol[1] + " at " + color;
+                                            }
+                                            else if(previous == 13)
+                                            {
+                                                Console.WriteLine("Current Card: {0} of {1}", symbol[2], CardSort.Diamonds);
+                                                previousCard = symbol[2] + " at " + color;
+                                            }
+                                            else if(previous == 14 || previous == 1)
+                                            {
+                                                Console.WriteLine("Current Card: {0} of {1}", symbol[3], CardSort.Diamonds);
+                                                previousCard = symbol[3] + " at " + color;
+                                            }
+                                            else
+                                            {
+                                                Console.WriteLine("Current Card: {0} of {1}", previous, CardSort.Diamonds);
+                                                previousCard = previous.ToString() + " at " + color;
+                                            }
+                                                
 
                                         }
                                         else if (color1 == 3)
                                         {
                                             color = "Spades";
-                                            previousCard = previous.ToString() + " at " + color;
                                             Console.WriteLine("Cards left: {0}", cardsLeft);
-                                            Console.WriteLine("Current Card: {0} of {1}", previous, CardSort.Spades);
+                                            if (previous == 11)
+                                            {
+                                                Console.WriteLine("Current Card: {0} of {1}", symbol[0], CardSort.Spades);
+                                                previousCard = symbol[0] + " at " + color;
+                                            }
+                                            else if (previous == 12)
+                                            {
+                                                Console.WriteLine("Current Card: {0} of {1}", symbol[1], CardSort.Spades);
+                                                previousCard = symbol[1] + " at " + color;
+                                            }
+                                            else if (previous == 13)
+                                            {
+                                                Console.WriteLine("Current Card: {0} of {1}", symbol[2], CardSort.Spades);
+                                                previousCard = symbol[2] + " at " + color;
+                                            }
+                                            else if (previous == 14 || previous == 1)
+                                            {
+                                                Console.WriteLine("Current Card: {0} of {1}", symbol[3], CardSort.Spades);
+                                                previousCard = symbol[3] + " at " + color;
+                                            }
+                                            else
+                                            {
+                                                Console.WriteLine("Current Card: {0} of {1}", previous, CardSort.Spades);
+                                                previousCard = previous.ToString() + " at " + color;
+                                            }
+                                            
 
                                         }
                                         else if (color1 == 4)
                                         {
                                             color = "Clover";
-                                            previousCard = previous.ToString() + " at " + color;
                                             Console.WriteLine("Cards left: {0}", cardsLeft);
-                                            Console.WriteLine("Current Card: {0} of {1}", previous, CardSort.Clover);
+                                            if (previous == 11)
+                                            {
+                                                Console.WriteLine("Current Card: {0} of {1}", symbol[0], CardSort.Clover);
+                                                previousCard = symbol[0] + " at " + color;
+                                            }
+                                            else if (previous == 12)
+                                            {
+                                                Console.WriteLine("Current Card: {0} of {1}", symbol[1], CardSort.Clover);
+                                                previousCard = symbol[1] + " at " + color;
+                                            }
+                                            else if (previous == 13)
+                                            {
+                                                Console.WriteLine("Current Card: {0} of {1}", symbol[2], CardSort.Clover);
+                                                previousCard = symbol[2] + " at " + color;
+                                            }
+                                            else if (previous == 14 || previous == 1)
+                                            {
+                                                Console.WriteLine("Current Card: {0} of {1}", symbol[3], CardSort.Clover);
+                                                previousCard = symbol[3] + " at " + color;
+                                            }
+                                            else
+                                            {
+                                                Console.WriteLine("Current Card: {0} of {1}", previous, CardSort.Clover);
+                                                previousCard = previous.ToString() + " at " + color;
+                                            }
+                                           
 
                                         }
                                         Console.Write("High or Low: ");
