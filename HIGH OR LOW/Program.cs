@@ -1020,7 +1020,7 @@ namespace HIGH_OR_LOW
                             Console.WriteLine("1.How to play");
                             Console.WriteLine("2. About Me");
                             Console.WriteLine("3. Go back");
-                            Console.WriteLine("3. Exit");
+                            Console.WriteLine("4. Exit");
                             Console.Write("Answer: ");
                             try
                             {
@@ -1050,7 +1050,7 @@ namespace HIGH_OR_LOW
                             }
                             catch
                             {
-                                Console.WriteLine("1, 2, 3 are you stupid or something");
+                                Console.WriteLine("1, 2, 3, 4 are you stupid or something");
                             }
                             Console.ReadLine();
                         }
