@@ -331,11 +331,11 @@ namespace HIGH_OR_LOW
                             while (alive)
                             {
                                 round++;
-                                cardsLeft -= 2;
-                                totalCards++;
 
                                 while (alive)
                                 {
+                                    cardsLeft -= 2;
+                                    totalCards++;
                                     int index = card.Next(0, chunk.Count);
                                     List<Cards> first = new List<Cards>();
                                     first.Add(chunk.ElementAt(index));
@@ -547,13 +547,13 @@ namespace HIGH_OR_LOW
                                         Console.WriteLine("Cards left: {0}", cardsLeft + " Round: " + round);
                                         Console.WriteLine("Player2 points: " + player2);
                                     }
-                                    else if ((playerOneAnswer == "low" && current < previous) && (playerTwoAnswer == "high" && current > previous))
+                                    else if ((playerOneAnswer == "low" && current < previous) && (playerTwoAnswer == "high" && current < previous))
                                     {
                                         player1++;
                                         Console.WriteLine("Cards left: {0}", cardsLeft + " Round: " + round);
                                         Console.WriteLine("Player1 points: " + player1);
                                     }
-                                    else if ((playerOneAnswer == "high" && current > previous) && (playerTwoAnswer == "low" && current < previous))
+                                    else if ((playerOneAnswer == "high" && current < previous) && (playerTwoAnswer == "low" && current < previous))
                                     {
                                         player2++;
                                         Console.WriteLine("Cards left: {0}", cardsLeft + " Round: " + round);
