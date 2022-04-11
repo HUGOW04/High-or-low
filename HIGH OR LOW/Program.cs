@@ -23,6 +23,7 @@ namespace HIGH_OR_LOW
             Console.Title = "High or Low";
             List<int> tal = new List<int>();
             char[] symbol = { 'J', 'Q', 'K', 'A' };
+            bool back = true;
             while (true)
             {
 
@@ -32,6 +33,7 @@ namespace HIGH_OR_LOW
                 Console.WriteLine("3. Info");
                 Console.WriteLine("4. Exit");
                 Console.Write("Answer: ");
+                back = true;
                 try
                 {
                     int answer = int.Parse(Console.ReadLine());
@@ -84,7 +86,6 @@ namespace HIGH_OR_LOW
                             int round = 0;
                             int color1 = 0;
                             int color2 = 0;
-                            int totalCards = 0;
                             int cardsLeft = 52;
                             string color;
                             string previousCard = "";
@@ -114,10 +115,8 @@ namespace HIGH_OR_LOW
                             {
                                 while (alive)
                                 {
-
-                                    totalCards++;
-                                    cardsLeft -= 2;
                                     round++;
+                                    cardsLeft -= 2;
                                     int index = card.Next(0, chunk.Count);
                                     List<Cards> first = new List<Cards>();
                                     first.Add(chunk.ElementAt(index));
@@ -128,26 +127,26 @@ namespace HIGH_OR_LOW
                                         previous = firstCard.Number();
                                     }
                                     first.RemoveAt(0);
-                                    if (round == 6)
+                                    if (round == 13)
                                     {
-                                        Console.WriteLine("All {0}/52 cards played now the dealer placed 13 more on the table", cardsLeft);
+                                        Console.WriteLine("All 13/52 cards played now the dealer placed 13 more on the table");
                                         Console.ReadLine();
                                     }
-                                    else if (round == 12)
+                                    else if (round == 26)
                                     {
 
-                                        Console.WriteLine("All {0}/52 cards played now the dealer placed 13 more on the table", cardsLeft);
+                                        Console.WriteLine("All 26/52 cards played now the dealer placed 13 more on the table");
                                         Console.ReadLine();
 
                                     }
-                                    else if (round == 18)
+                                    else if (round == 39)
                                     {
-                                        Console.WriteLine("All {0}/52 cards played now the dealer placed 13 more on the table", cardsLeft);
+                                        Console.WriteLine("All 39/52 cards played now the dealer placed 13 more on the table");
                                         Console.ReadLine();
                                     }
-                                    else if (round == 24)
+                                    else if (round == 52)
                                     {
-                                        Console.WriteLine("All {0}/52 cards played now the dealer placed 13 more on the table", cardsLeft);
+                                        Console.WriteLine("All 52/52 cards played now the dealer placed 13 more on the table");
                                         Console.ReadLine();
                                     }
                                     if (cardsLeft == 0)
@@ -178,11 +177,12 @@ namespace HIGH_OR_LOW
                                                 Console.WriteLine("yes or no");
                                             }
                                         }
+                                        break;
                                     }
 
                                     while (alive)
                                     {
-
+                                        
                                         Console.Clear();
 
                                         if (color1 == 1)
@@ -333,7 +333,6 @@ namespace HIGH_OR_LOW
                                     List<Cards> second = new List<Cards>();
                                     second.Add(chunk.ElementAt(pos));
                                     chunk.RemoveAt(pos);
-
                                     foreach (Cards secondCard in second)
                                     {
                                         color2 = secondCard.Color();
@@ -601,6 +600,7 @@ namespace HIGH_OR_LOW
                                                 Console.WriteLine("yes or no");
                                             }
                                         }
+                                        break;
                                     }
 
                                     while (alive)
@@ -971,11 +971,12 @@ namespace HIGH_OR_LOW
                     else if (answer == 3)
                     {
 
-                        while (true)
+                        while (back)
                         {
                             Console.Clear();
                             Console.WriteLine("1.How to play");
                             Console.WriteLine("2. About Me");
+                            Console.WriteLine("3. Go back");
                             Console.WriteLine("3. Exit");
                             Console.Write("Answer: ");
                             try
@@ -995,8 +996,12 @@ namespace HIGH_OR_LOW
                                         Console.ReadLine();
                                         break;
                                     case 3:
+                                        back = false;
+                                        break;
+                                    case 4:
                                         Environment.Exit(0);
                                         break;
+                                        
 
                                 }
                             }
