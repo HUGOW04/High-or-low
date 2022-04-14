@@ -113,8 +113,9 @@ namespace HIGH_OR_LOW
                             }
 
                             Console.WriteLine("The dealer puts 13 cards on the tabel and flips up the first card");
+                            Console.WriteLine("Press enter to continue");
                             Console.ReadLine();
-                            Console.Clear();
+
 
                             alive = true;
 
@@ -139,7 +140,7 @@ namespace HIGH_OR_LOW
                                         points1 = points;
                                         if(pair == false)
                                         {
-                                            if(round == 13 && points1 == 13)
+                                            if(round == 13 && points1 == 6)
                                             {
                                                 totalpoints = points1 + extraPoints; 
                                             }
@@ -152,10 +153,12 @@ namespace HIGH_OR_LOW
                                         {
                                             points1 = 0;
                                             Console.WriteLine("You got a pair your score is now 0 for this round");
+                                            Console.WriteLine("Press enter to continue");
                                             Console.ReadLine();
                                             pair = false;
                                         }
                                         Console.WriteLine("All 13/52 cards played now the dealer placed 13 more on the table");
+                                        Console.WriteLine("Press enter to continue");
                                         Console.ReadLine();
 
                                     }
@@ -177,10 +180,12 @@ namespace HIGH_OR_LOW
                                         {
                                             points2 = 0;
                                             Console.WriteLine("You got a pair your score is now 0 for this round");
+                                            Console.WriteLine("Press enter to continue");
                                             Console.ReadLine();
                                             pair = false;
                                         }
                                         Console.WriteLine("All {26/52 cards played now the dealer placed 13 more on the table");
+                                        Console.WriteLine("Press enter to continue");
                                         Console.ReadLine();
 
                                     }
@@ -202,10 +207,12 @@ namespace HIGH_OR_LOW
                                         {
                                             points3 = 0;
                                             Console.WriteLine("You got a pair your score is now 0 for this round");
+                                            Console.WriteLine("Press enter to continue");
                                             Console.ReadLine();
                                             pair = false;
                                         }
                                         Console.WriteLine("All 39/52 cards played now the dealer placed 13 more on the table");
+                                        Console.WriteLine("Press enter to continue");
                                         Console.ReadLine();
                                     }
                                     else if (round == 52)
@@ -227,10 +234,12 @@ namespace HIGH_OR_LOW
                                         {
                                             points4 = 0;
                                             Console.WriteLine("You got a pair your score is now 0 for this round");
+                                            Console.WriteLine("Press enter to continue");
                                             Console.ReadLine();
                                             pair = false;
                                         }
                                         Console.WriteLine("All 52/52 cards played now the dealer placed 13 more on the table");
+                                        Console.WriteLine("Press enter to continue");
                                         Console.ReadLine();
                                     }
                                     if (cardsLeft == 0)
@@ -266,7 +275,7 @@ namespace HIGH_OR_LOW
 
                                     while (alive)
                                     {
-                                        
+
                                         Console.Clear();
 
                                         if (color1 == 1)
@@ -277,6 +286,7 @@ namespace HIGH_OR_LOW
                                             {
                                                 Console.WriteLine("Current Card: {0} of {1}", symbol[0], CardSort.Hearts);
                                                 previousCard = symbol[0] + " of " + color;
+
                                             }
                                             else if (previous == 12)
                                             {
@@ -422,13 +432,13 @@ namespace HIGH_OR_LOW
                                         current = secondCard.Number();
                                     }
                                     second.RemoveAt(0);
-                                    if (playerAnswer == "high" && current > previous || current == 1)
+                                    if (playerAnswer == "high" && current > previous || current == 1 || previous == 1)
                                     {
                                         points++;
                                         Console.WriteLine("Cards left: {0}", cardsLeft + " Round: " + round);
                                         Console.WriteLine("Points: " + points);
                                     }
-                                    else if (playerAnswer == "low" && current < previous || current == 1)
+                                    else if (playerAnswer == "low" && current < previous || current == 1 || previous == 1)
                                     {
                                         points++;
                                         Console.WriteLine("Cards left: {0}", cardsLeft + " Round: " + round);
