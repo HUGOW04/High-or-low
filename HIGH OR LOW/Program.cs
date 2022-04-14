@@ -1003,7 +1003,7 @@ namespace HIGH_OR_LOW
                                     }
                                     second.RemoveAt(0);
                                     Console.Clear();
-                                    if (((playerOneAnswer == "high" && current > previous) || (playerOneAnswer == "high" && current > previous) && current == 1) && (playerTwoAnswer == "high" && current > previous) || (playerTwoAnswer == "high" && current > previous) && current == 1)
+                                    if ((playerOneAnswer == "high" && current > previous) || (playerOneAnswer == "high" && current > previous)  && (playerTwoAnswer == "high" && current > previous) || (playerTwoAnswer == "high" && current > previous))
                                     {
                                         player1++;
                                         player2++;
@@ -1011,32 +1011,32 @@ namespace HIGH_OR_LOW
                                         Console.WriteLine("Player1 points: " + player1 + " Player2 points: " + player2);
 
                                     }
-                                    else if (((playerOneAnswer == "low" && current < previous) && current == 1) && (playerTwoAnswer == "low" && current < previous) && current == 1)
+                                    else if ((playerOneAnswer == "low" && current < previous) && (playerTwoAnswer == "low" && current < previous))
                                     {
                                         player1++;
                                         player2++;
                                         Console.WriteLine("Cards left: {0}", cardsLeft + " Round: " + round);
                                         Console.WriteLine("Player1 points: " + player1 + " Player2 points: " + player2);
                                     }
-                                    else if (((playerOneAnswer == "high" && current > previous) && current == 1) && (playerTwoAnswer == "low" && current > previous) && current == 1)
+                                    else if ((playerOneAnswer == "high" && current > previous) && (playerTwoAnswer == "low" && current > previous))
                                     {
                                         player1++;
                                         Console.WriteLine("Cards left: {0}", cardsLeft + " Round: " + round);
                                         Console.WriteLine("Player1 points: " + player1);
                                     }
-                                    else if (((playerOneAnswer == "low" && current > previous) && current == 1) && (playerTwoAnswer == "high" && current > previous) && current == 1)
+                                    else if ((playerOneAnswer == "low" && current > previous)  && (playerTwoAnswer == "high" && current > previous))
                                     {
                                         player2++;
                                         Console.WriteLine("Cards left: {0}", cardsLeft + " Round: " + round);
                                         Console.WriteLine("Player2 points: " + player2);
                                     }
-                                    else if (((playerOneAnswer == "low" && current < previous) && current == 1) && (playerTwoAnswer == "high" && current < previous) && current == 1)
+                                    else if ((playerOneAnswer == "low" && current < previous) && (playerTwoAnswer == "high" && current < previous))
                                     {
                                         player1++;
                                         Console.WriteLine("Cards left: {0}", cardsLeft + " Round: " + round);
                                         Console.WriteLine("Player1 points: " + player1);
                                     }
-                                    else if (((playerOneAnswer == "high" && current < previous) && current == 1) && (playerTwoAnswer == "low" && current < previous) && current == 1)
+                                    else if ((playerOneAnswer == "high" && current < previous) && (playerTwoAnswer == "low" && current < previous))
                                     {
                                         player2++;
                                         Console.WriteLine("Cards left: {0}", cardsLeft + " Round: " + round);
@@ -1045,6 +1045,13 @@ namespace HIGH_OR_LOW
                                     else if(current == previous)
                                     {
                                         pair = true;
+                                    }
+                                    else if(current == 1 || previous == 1)
+                                    {
+                                        player1++;
+                                        player2++;
+                                        Console.WriteLine("Cards left: {0}", cardsLeft + " Round: " + round);
+                                        Console.WriteLine("Player1 points: " + player1 + " Player2 points: " + player2);
                                     }
                                     else
                                     {
