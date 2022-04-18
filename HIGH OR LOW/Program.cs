@@ -282,7 +282,6 @@ namespace HIGH_OR_LOW
 
                                     while (alive)
                                     {
-
                                         Console.Clear();
 
                                         if (color1 == 1)
@@ -448,22 +447,22 @@ namespace HIGH_OR_LOW
                                         if (color1 == 1)
                                         {
                                             color = "Hearts";
-                                            if (previous == 11)
+                                            if (current == 11)
                                             {
                                                 Console.WriteLine("Current Card: {0} of {1}", symbol[0], CardSort.Hearts);
                                                 currentCard = symbol[0] + " of " + color;
                                             }
-                                            else if (previous == 12)
+                                            else if (current == 12)
                                             {
                                                 Console.WriteLine("Current Card: {0} of {1}", symbol[1], CardSort.Hearts);
                                                 currentCard = symbol[1] + " of " + color;
                                             }
-                                            else if (previous == 13)
+                                            else if (current == 13)
                                             {
                                                 Console.WriteLine("Current Card: {0} of {1}", symbol[2], CardSort.Hearts);
                                                 currentCard = symbol[2] + " of " + color;
                                             }
-                                            else if (previous == 14 || previous == 1)
+                                            else if (current == 14 || current == 1)
                                             {
                                                 Console.WriteLine("Current Card: {0} of {1}", symbol[3], CardSort.Hearts);
                                                 currentCard = symbol[3] + " of " + color;
@@ -477,22 +476,22 @@ namespace HIGH_OR_LOW
                                         else if (color1 == 2)
                                         {
                                             color = "Diamonds";
-                                            if (previous == 11)
+                                            if (current == 11)
                                             {
                                                 Console.WriteLine("Current Card: {0} of {1}", symbol[0], CardSort.Diamonds);
                                                 currentCard = symbol[0] + " of " + color;
                                             }
-                                            else if (previous == 12)
+                                            else if (current == 12)
                                             {
                                                 Console.WriteLine("Current Card: {0} of {1}", symbol[1], CardSort.Diamonds);
                                                 currentCard = symbol[1] + " of " + color;
                                             }
-                                            else if (previous == 13)
+                                            else if (current == 13)
                                             {
                                                 Console.WriteLine("Current Card: {0} of {1}", symbol[2], CardSort.Diamonds);
                                                 currentCard = symbol[2] + " of " + color;
                                             }
-                                            else if (previous == 14 || previous == 1)
+                                            else if (current == 14 || current == 1)
                                             {
                                                 Console.WriteLine("Current Card: {0} of {1}", symbol[3], CardSort.Diamonds);
                                                 currentCard = symbol[3] + " of " + color;
@@ -506,22 +505,22 @@ namespace HIGH_OR_LOW
                                         else if (color1 == 3)
                                         {
                                             color = "Spades";
-                                            if (previous == 11)
+                                            if (current == 11)
                                             {
                                                 Console.WriteLine("Current Card: {0} of {1}", symbol[0], CardSort.Spades);
                                                 currentCard = symbol[0] + " of " + color;
                                             }
-                                            else if (previous == 12)
+                                            else if (current == 12)
                                             {
                                                 Console.WriteLine("Current Card: {0} of {1}", symbol[1], CardSort.Spades);
                                                 currentCard = symbol[1] + " of " + color;
                                             }
-                                            else if (previous == 13)
+                                            else if (current == 13)
                                             {
                                                 Console.WriteLine("Current Card: {0} of {1}", symbol[2], CardSort.Spades);
                                                 currentCard = symbol[2] + " of " + color;
                                             }
-                                            else if (previous == 14 || previous == 1)
+                                            else if (current == 14 || current == 1)
                                             {
                                                 Console.WriteLine("Current Card: {0} of {1}", symbol[3], CardSort.Spades);
                                                 currentCard = symbol[3] + " of " + color;
@@ -535,22 +534,22 @@ namespace HIGH_OR_LOW
                                         else if (color1 == 4)
                                         {
                                             color = "Clover";
-                                            if (previous == 11)
+                                            if (current == 11)
                                             {
                                                 Console.WriteLine("Current Card: {0} of {1}", symbol[0], CardSort.Clover);
                                                 currentCard = symbol[0] + " of " + color;
                                             }
-                                            else if (previous == 12)
+                                            else if (current == 12)
                                             {
                                                 Console.WriteLine("Current Card: {0} of {1}", symbol[1], CardSort.Clover);
                                                 currentCard = symbol[1] + " of " + color;
                                             }
-                                            else if (previous == 13)
+                                            else if (current == 13)
                                             {
                                                 Console.WriteLine("Current Card: {0} of {1}", symbol[2], CardSort.Clover);
                                                 currentCard = symbol[2] + " of " + color;
                                             }
-                                            else if (previous == 14 || previous == 1)
+                                            else if (current == 14 || current == 1)
                                             {
                                                 Console.WriteLine("Current Card: {0} of {1}", symbol[3], CardSort.Clover);
                                                 currentCard = symbol[3] + " of " + color;
@@ -568,25 +567,25 @@ namespace HIGH_OR_LOW
                                         Console.WriteLine("you guessed right!");
                                         Console.WriteLine("Points: " + points);
                                         Console.WriteLine("Cards left: {0}", cardsLeft + " Round: " + round);
-                                                                                if (color1 == 1)
+                                        if (color1 == 1)
                                         {
                                             color = "Hearts";
-                                            if (previous == 11)
+                                            if (current == 11)
                                             {
                                                 Console.WriteLine("Current Card: {0} of {1}", symbol[0], CardSort.Hearts);
                                                 currentCard = symbol[0] + " of " + color;
                                             }
-                                            else if (previous == 12)
+                                            else if (current == 12)
                                             {
                                                 Console.WriteLine("Current Card: {0} of {1}", symbol[1], CardSort.Hearts);
                                                 currentCard = symbol[1] + " of " + color;
                                             }
-                                            else if (previous == 13)
+                                            else if (current == 13)
                                             {
                                                 Console.WriteLine("Current Card: {0} of {1}", symbol[2], CardSort.Hearts);
                                                 currentCard = symbol[2] + " of " + color;
                                             }
-                                            else if (previous == 14 || previous == 1)
+                                            else if (current == 14 || current == 1)
                                             {
                                                 Console.WriteLine("Current Card: {0} of {1}", symbol[3], CardSort.Hearts);
                                                 currentCard = symbol[3] + " of " + color;
@@ -600,22 +599,22 @@ namespace HIGH_OR_LOW
                                         else if (color1 == 2)
                                         {
                                             color = "Diamonds";
-                                            if (previous == 11)
+                                            if (current == 11)
                                             {
                                                 Console.WriteLine("Current Card: {0} of {1}", symbol[0], CardSort.Diamonds);
                                                 currentCard = symbol[0] + " of " + color;
                                             }
-                                            else if (previous == 12)
+                                            else if (current == 12)
                                             {
                                                 Console.WriteLine("Current Card: {0} of {1}", symbol[1], CardSort.Diamonds);
                                                 currentCard = symbol[1] + " of " + color;
                                             }
-                                            else if (previous == 13)
+                                            else if (current == 13)
                                             {
                                                 Console.WriteLine("Current Card: {0} of {1}", symbol[2], CardSort.Diamonds);
                                                 currentCard = symbol[2] + " of " + color;
                                             }
-                                            else if (previous == 14 || previous == 1)
+                                            else if (current == 14 || current == 1)
                                             {
                                                 Console.WriteLine("Current Card: {0} of {1}", symbol[3], CardSort.Diamonds);
                                                 currentCard = symbol[3] + " of " + color;
@@ -629,27 +628,27 @@ namespace HIGH_OR_LOW
                                         else if (color1 == 3)
                                         {
                                             color = "Spades";
-                                            if (previous == 11)
+                                            if (current == 11)
                                             {
                                                 Console.WriteLine("Current Card: {0} of {1}", symbol[0], CardSort.Spades);
                                                 currentCard = symbol[0] + " of " + color;
                                             }
-                                            else if (previous == 12)
+                                            else if (current == 12)
                                             {
                                                 Console.WriteLine("Current Card: {0} of {1}", symbol[1], CardSort.Spades);
                                                 currentCard = symbol[1] + " of " + color;
                                             }
-                                            else if (previous == 13)
+                                            else if (current == 13)
                                             {
                                                 Console.WriteLine("Current Card: {0} of {1}", symbol[2], CardSort.Spades);
                                                 currentCard = symbol[2] + " of " + color;
                                             }
-                                            else if (previous == 14 || previous == 1)
+                                            else if (current == 14 || current == 1)
                                             {
                                                 Console.WriteLine("Current Card: {0} of {1}", symbol[3], CardSort.Spades);
                                                 currentCard = symbol[3] + " of " + color;
                                             }
-                                            else
+                                            else                                  
                                             {
                                                 Console.WriteLine("Previous: " + current + " of " + CardSort.Spades);
                                                 currentCard = current.ToString() + " of " + color;
@@ -658,22 +657,22 @@ namespace HIGH_OR_LOW
                                         else if (color1 == 4)
                                         {
                                             color = "Clover";
-                                            if (previous == 11)
+                                            if (current == 11)
                                             {
                                                 Console.WriteLine("Current Card: {0} of {1}", symbol[0], CardSort.Clover);
                                                 currentCard = symbol[0] + " of " + color;
                                             }
-                                            else if (previous == 12)
+                                            else if (current == 12)
                                             {
                                                 Console.WriteLine("Current Card: {0} of {1}", symbol[1], CardSort.Clover);
                                                 currentCard = symbol[1] + " of " + color;
                                             }
-                                            else if (previous == 13)
+                                            else if (current == 13)
                                             {
                                                 Console.WriteLine("Current Card: {0} of {1}", symbol[2], CardSort.Clover);
                                                 currentCard = symbol[2] + " of " + color;
                                             }
-                                            else if (previous == 14 || previous == 1)
+                                            else if (current == 14 || current == 1)
                                             {
                                                 Console.WriteLine("Current Card: {0} of {1}", symbol[3], CardSort.Clover);
                                                 currentCard = symbol[3] + " of " + color;
